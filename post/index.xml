@@ -6,10 +6,21 @@
     <description>Recent content in Posts on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 12 Jul 2017 23:36:55 +1000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Jul 2017 21:39:38 +1000</lastBuildDate>
     
 	<atom:link href="https://forfuncsake.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Blog Version Control</title>
+      <link>https://forfuncsake.github.io/2017/07/blog-version-control/</link>
+      <pubDate>Thu, 13 Jul 2017 21:39:38 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/2017/07/blog-version-control/</guid>
+      <description>Following on from my last post&amp;hellip;
+The Hugo Quickstart Guide gives instructions on setting up version control and publishing a site on GitHub Pages - but using the method of pushing to a gh-pages branch.
+This is the typical path for a &amp;ldquo;project site&amp;rdquo;, but a user site (with no repository in the URL) will publish to Pages only from the master branch. So adding the hugo files to version control required me to either start another project - or just be sensible about it and use a non-master branch of the user project (which must be named &amp;lt;username&amp;gt;.</description>
+    </item>
     
     <item>
       <title>package blog</title>
