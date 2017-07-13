@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on for func() sake { }</title>
+    <link>https://forfuncsake.github.io/post/</link>
+    <description>Recent content in Posts on for func() sake { }</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 12 Jul 2017 23:36:55 +1000</lastBuildDate>
+    
+	<atom:link href="https://forfuncsake.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>package blog</title>
+      <link>https://forfuncsake.github.io/2017/07/package-blog/</link>
+      <pubDate>Wed, 12 Jul 2017 23:36:55 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/2017/07/package-blog/</guid>
+      <description>Every blog needs a first post, and what better subject to record than the birth of this blog.
+Last weekend, I was reading a particular reddit post and noticed the OPs username forfunc. I&amp;rsquo;ve also been watching (and loving!) @francesc&amp;rsquo;s JustForFunc channel. I like the wordplay and thought myself very clever indeed when I came up with &amp;ldquo;for func sake&amp;rdquo;&amp;hellip;
+It just so happened that the username was available in the places I want to use it; and I&amp;rsquo;ve been less than thrilled with my previous username choice(s)&amp;hellip; so I spent an hour or so creating new accounts across the web.</description>
+    </item>
+    
+  </channel>
+</rss>
