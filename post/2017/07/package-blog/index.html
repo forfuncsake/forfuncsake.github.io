@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <title>package blog &middot; for func() sake { }</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+    <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://forfuncsake.github.io/">for func() sake</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/forfuncsake" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://reddit.com/user/forfuncsake" target="_blank"><i class="fa fa-reddit-square fa-fw"></i>Reddit</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/forfuncsake" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>package blog</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Wed Jul 12, 2017</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  <p>Every blog needs a first post, and what better subject to record than the birth of this blog.</p>
+
+<p>Last weekend, I was reading a particular <a href="https://www.reddit.com/r/golang/comments/6m10xf/clean_http_handlers_in_go/">reddit post</a> and noticed the OPs username <code>forfunc</code>. I&rsquo;ve also been watching (and loving!) <a href="https://twitter.com/francesc">@francesc</a>&rsquo;s <a href="https://www.youtube.com/c/justforfunc">JustForFunc</a> channel. I like the wordplay and thought myself very clever indeed when I came up with &ldquo;for func sake&rdquo;&hellip;</p>
+
+<p>It just so happened that the username was available in the places I want to use it; and I&rsquo;ve been less than thrilled with my previous username choice(s)&hellip; so I spent an hour or so creating new accounts across the web. Step 1, done.</p>
+
+<p>With the username locked in - I needed a project for it. I&rsquo;ve been writing a bit of go for my job and soaking in as much as I can from various blogs, subreddits, GopherFest livestreams, GopherCon talk videos and open source projects - and I feel like the time has come to contribute something back. I don&rsquo;t know what that contribution will be yet - but I figure that when I do find my pet project, I&rsquo;m going to want to share it - so Step 2 is the blog.</p>
+
+<p>What follows is a (probably not as brief as it should be) overview of how I got from that point to publishing this post:</p>
+
+<blockquote>
+<p>&ldquo;I&rsquo;m going to start a blog&hellip; so now what?&rdquo;</p>
+</blockquote>
+
+<p>At around 21:00 yesterday (AEST), I decided to google &ldquo;host blog on github&rdquo;. Turns out.. it&rsquo;s a thing and wasn&rsquo;t about to break any new ground. I discovered that Jekyll is the &ldquo;default&rdquo; static generator provided by GitHub Pages - then remembered reading something about Hugo a few months back. Considering I&rsquo;m all in on go right now, I knew I should dig deeper.</p>
+
+<p>At 21:15 I was here -&gt; <a href="https://opensource.com/article/17/5/hugo-vs-jekyll">https://opensource.com/article/17/5/hugo-vs-jekyll</a><br />
+At 21:20, here -&gt; <a href="https://www.sarasoueidan.com/blog/jekyll-ghpages-to-hugo-netlify/">https://www.sarasoueidan.com/blog/jekyll-ghpages-to-hugo-netlify/</a> and thinking that I might need to look up netlify, having never heard of it before.</p>
+
+<p>It quickly became clear that Hugo was going to be my tool of choice - and github pages would be my publisher to start with.</p>
+
+<p>By 22:00, I had just viewed a &ldquo;working&rdquo; local site from following the <a href="https://gohugo.io/overview/quickstart/">Hugo Quickstart Guide</a>. I also couldn&rsquo;t help but notice that while it walks the reader through setting up on GitHub Pages&hellip; the guide itself is deployed with Netlify&hellip; [pause for effect] interesting.</p>
+
+<p>Pause is also what happened to the site - it was time to get some sleep.</p>
+
+<p>Around 21:00 this evening I was ready to resume; but I was also in the middle of grinding dailes in Hearthstone&hellip; because, double gold!</p>
+
+<p>By 21:50 I had chosen an initial theme, <a href="https://github.com/alanorth/hugo-theme-bootstrap4-blog">Bootstrap4</a>, started config customisation  and realised that I&rsquo;m probably going to want a disqus account - which I finally set up while in the middle of typing out this sentence.</p>
+
+<p>It&rsquo;s now 23:30 and again time for me to sleep - so I&rsquo;ll wrap up here - noting that my next post will be the step-by-step of how I publish to GH Pages.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/">Blog Version Control</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://forfuncsake.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102737019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.25.1" />
 
-  <title>for func() sake { }</title>
+  <title>Blog Version Control &middot; for func() sake { }</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="for func() sake { }" href="https://forfuncsake.github.io/index.xml" />
   
 
   
@@ -97,10 +95,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://forfuncsake.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -208,17 +202,12 @@
 
 
 <div class="header">
-  <h1>for func() sake { }</h1>
-  <h2>Yet another gopher...</h2>
+  <h1>Blog Version Control</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/">Blog Version Control</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -233,59 +222,85 @@
 
 </div>
 
-  </header>
+  <p>Following on from <a href="https://forfuncsake.github.io/2017/07/package-blog/">my last post</a>&hellip;</p>
 
-  <p>
-  Following on from my last post&hellip;
-The Hugo Quickstart Guide gives instructions on setting up version control and publishing a site on GitHub Pages - but using the method of pushing to a gh-pages branch.
-This is the typical path for a &ldquo;project site&rdquo;, but a user site (with no repository in the URL) will publish to Pages only from the master branch. So adding the hugo files to version control required me to either start another project - or just be sensible about it and use a non-master branch of the user project (which must be named &lt;username&gt;.
-  </p>
+<p>The Hugo <a href="https://gohugo.io/overview/quickstart/">Quickstart Guide</a> gives instructions on setting up version control and publishing a site on GitHub Pages - but using the method of pushing to a <em>gh-pages</em> branch.</p>
+
+<p>This is the typical path for a &ldquo;project site&rdquo;, but a <a href="https://pages.github.com/#user-site">user site</a> (with no repository in the URL) will publish to Pages only from the <em>master</em> branch. So adding the hugo files to version control required me to either start another project - or just be sensible about it and use a non-master branch of the user project (which must be named &lt;username&gt;.github.io).</p>
+
+<p>The process was quick and simple (starting from public/, where I had just pushed the blog files to <em>master</em>):</p>
+
+<pre><code>$ cd ..
+$ echo /public/ &gt;&gt; .gitignore
+$ echo /themes/ &gt;&gt; .gitignore
+$ git init
+$ git remote add origin https://github.com/forfuncsake/forfuncsake.github.io.git
+$ git checkout -b hugo
+$ git add --all .
+$ git commit
+$ git push -u origin hugo
+</code></pre>
+
+<p>For any future updates, like this one, I now simply need to:</p>
+
+<pre><code>$ hugo
+$ git add --all .
+$ git commit
+$ git push origin hugo
+$ cd public
+$ git add --all .
+$ git commit
+$ git push origin master
+</code></pre>
+
+<p>Job done.</p>
+
 
   
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/07/package-blog/">package blog</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Wed Jul 12, 2017</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2017/07/package-blog/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-
-  
-
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2017/07/package-blog/">package blog</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Every blog needs a first post, and what better subject to record than the birth of this blog.
-Last weekend, I was reading a particular reddit post and noticed the OPs username forfunc. I&rsquo;ve also been watching (and loving!) @francesc&rsquo;s JustForFunc channel. I like the wordplay and thought myself very clever indeed when I came up with &ldquo;for func sake&rdquo;&hellip;
-It just so happened that the username was available in the places I want to use it; and I&rsquo;ve been less than thrilled with my previous username choice(s)&hellip; so I spent an hour or so creating new accounts across the web.
-  </p>
 
   
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/07/package-blog/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
 
-  
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </div>
