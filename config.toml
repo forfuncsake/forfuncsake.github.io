@@ -1,65 +1,103 @@
 baseURL = "https://forfuncsake.github.io/"
-languageCode = "en-us"
 title = "for func() sake { }"
-theme = "hugo-theme-bootstrap4-blog"
+author = "Dave Russell"
+theme = "blackburn"
 
-# number of posts to show on home/category/tag pages (Default: 10)
-paginate = 5
+# Shown in the side menu
+copyright = "&copy; 2017. All rights reserved."
+canonifyurls = true
+paginate = 10
 
+[indexes]
+  tag = "tags"
+  topic = "topics"
 
-[permalinks]
-  post = "/:year/:month/:title/"
-  page = "/:slug/"
-
-  [[menu.sidebar]]
-    name = "Twitter"
-    url = "https://twitter.com/forfuncsake"
-
-  [[menu.sidebar]]
-    name = "GitHub"
-    url = "https://github.com/forfuncsake"
-
-# Theme variables
-# from: https://github.com/alanorth/hugo-theme-bootstrap4-blog/blob/master/exampleSite/config.toml
 [params]
-  # Site author
-  author = "Dave Russell"
-  disqusShortname = "forfuncsake"
+  # Shown in the home page
+  subtitle = "Yet another gopher..."
+  brand = "for func() sake"
+  googleAnalytics = "UA-102737019-1"
+  disqus = "forfuncsake"
 
-  # Description/subtitle for homepage (can be Markdown)
-  description = "Yet another gopher..."
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "Mon Jan 02, 2006"
 
-  # Format dates with Go's time formatting
-  date_format = "Mon Jan 02, 2006"
+  # Include any custom CSS and/or JS files
+  # (relative to /static folder)
+  custom_css = ["css/overrides.css"]
+  # custom_js = ["js/my.js"]
 
-  # customise the contents of the navbar at the top of the page.  The default
-  # behaviour is to list all static pages not in the posts directory. When the
-  # parameter below is set to true you will have to manually add entries to the
-  # navbar, either by adding the following menu variable to the front matter of
-  # the relevant pages
-  #   menu = "navbar"
-  # or by specifying menu entries in a similar way to the sidebar menu above.
-  #custom_navbar = true
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 0
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Posts"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 1
+    identifier = "post"
+    url = "/post/"
+  [[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-user fa-fw'></i>"
+    weight = 2
+    identifier = "about"
+    url = "/about/"
+  #[[menu.main]]
+  #  name = "Contact"
+  #  pre = "<i class='fa fa-phone fa-fw'></i>"
+  #  weight = 3
+  #  url = "/contact/"
 
-  # show sharing icons on pages/posts (default: true)
-  #sharingicons = true
+[social]
+  # Link your social networking accounts to the side menu
+  # by entering your username or ID.
 
-  # Display post summaries instead of content in list templates (default: true)
-  #truncate = true
+  # SNS microblogging
+  twitter = "forfuncsake"
+  #gnusocial = "*" # Specify href (e.g. https://quitter.se/yourusername)
+  #facebook = "*"
+  #googleplus = "*"
+  #weibo = "*"
+  #tumblr = "*"
 
-  # Disable the use of sub-resource integrity on CSS/JS assets (default: false)
-  # Useful if you're using a CDN or other host where you can't control cache headers
-  #disable_sri = false
+  # SNS photo/video sharing
+  #instagram = "*"
+  #flickr = "*"
+  #photo500px = "*"
+  #pinterest = "*"
+  #youtube = "*"
+  #vimeo = "*"
+  #vine = "*"
+  #slideshare = "*"
 
-  [params.sidebar]
-    # Optional about block for sidebar (can be Markdown)
-    about = "Dave Russell is a software developer, exploring and enjoying the [go](https://golang.org) language and community"
+  # SNS career oriented
+  #linkedin = "*"
+  #xing = "*"
 
-    # How many posts to show on the sidebar (Default: 5)
-    #num_recent_posts = 2
+  # SNS news
+  reddit = "forfuncsake"
+  #hackernews = "*"
 
-  [params.social]
-    # Optional, used for attribution in Twitter cards (ideally not a person
-    # for example: nytimes, flickr, NatGeo, etc).
-    # See: https://dev.twitter.com/cards/types/summary-large-image
-    twitter = "forfuncsake"
+  # Techie
+  github = "forfuncsake"
+  #gitlab = "*"
+  #bitbucket = "*"
+  #stackoverflow = "*"
+  #serverfault = "*"
+
+  # Gaming
+  #steam = "*"
+  #mobygames = "*"
+
+  # Music
+  #lastfm = "*"
+  #discogs = "*"
+
+  # Other
+  #keybase = "*"
