@@ -48,6 +48,7 @@
 
   <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
 
+
   
     <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
   
@@ -213,6 +214,42 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/">How To Trust Extra CA Certs In Your Go App</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sat Aug 26, 2017</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
+Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&rsquo;t bore you with it here.
+Our system is (now) modeled as follows:
+ +---------+ | Backend | +----^----+ | +---+---+ +-&gt; | API | &lt;-+ | +-------+ | https | | v | +---+---+ | | WebUI | | https +---+---+ | ^ | https | | v v +----+----+ +---+---+ | Browser | | CLI | +---------+ +-------+   The Backend and API always run on the same server The WebUI typically runs on the same server, but can run anywhere The CLI typically runs on a client workstation, but can run on the server The Browser (e.
+  </p>
+
+  
+  <footer>
+    <a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
