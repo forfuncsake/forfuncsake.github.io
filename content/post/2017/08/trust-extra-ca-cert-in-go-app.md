@@ -1,8 +1,12 @@
 ---
 title: "How To Trust Extra CA Certs In Your Go App"
 date: 2017-08-26T13:57:07+10:00
+tags: ["golang", "ssl"]
 ---
 
+**Edit:** Thanks to [/u/epiris](https://www.reddit.com/r/golang/comments/6w3lcn/adding_private_ssl_ca_cert_to_trust_pool_for_only/dm77ccl/) for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post... completely missing the point! Whoops. Code sample is fixed now.  
+ - - -  
+  
 At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.  
   
 Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won't bore you with it here.  
@@ -72,6 +76,7 @@ package main
 
 import (
 	"crypto/x509"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -80,10 +85,12 @@ import (
 
 const (
 	localCertFile = "/usr/local/internal-ca/ca.crt"
-	localKeyFile  = "/usr/local/internal-ca/ca.key"
 )
 
 func main() {
+	insecure := flag.Bool("insecure-ssl", false, "Accept/Ignore all server SSL certificates")
+	flag.Parse()
+
 	// Get the SystemCertPool, continue with an empty pool on error
 	rootCAs, _ := x509.SystemCertPool()
 	if rootCAs == nil {
@@ -101,18 +108,25 @@ func main() {
 		log.Println("No certs appended, using system certs only")
 	}
 
-	// Continue as before...
-	http.HandleFunc("/", handler)
-	srv := &http.Server{
-		Addr: ":443",
-		// Add timeouts, etc
+	// Trust the augmented cert pool in our client
+	config := &tls.Config{
+		InsecureSkipVerify: *insecure,
+		RootCAs:            rootCAs,
 	}
+	tr := &http.Transport{TLSClientConfig: config}
+	client := &http.Client{Transport: tr}
 
-	log.Fatal(srv.ListenAndServeTLS(localCertFile, localKeyFile))
-}
+	// Uses local self-signed cert
+	req := http.NewRequest(http.MethodGet, "https://localhost/api/version", nil)
+	resp, err := client.Do(req)
+	// Handle resp and err
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "We did it!")
+	// Still works with host-trusted CAs!
+	req = http.NewRequest(http.MethodGet, "https://example.com/", nil)
+	resp, err = client.Do(req)
+	// Handle resp and err
+
+	// ...
 }
 ```
   
