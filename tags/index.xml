@@ -6,9 +6,28 @@
     <description>Recent content in Tags on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 26 Aug 2017 13:57:07 +1000</lastBuildDate>
     
 	<atom:link href="https://forfuncsake.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Golang</title>
+      <link>https://forfuncsake.github.io/tags/golang/</link>
+      <pubDate>Sat, 26 Aug 2017 13:57:07 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ssl</title>
+      <link>https://forfuncsake.github.io/tags/ssl/</link>
+      <pubDate>Sat, 26 Aug 2017 13:57:07 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/ssl/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

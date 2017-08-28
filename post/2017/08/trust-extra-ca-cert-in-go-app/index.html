@@ -220,10 +220,26 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/ssl">ssl</a>
+    
+  </div>
+  
+  
 
 </div>
 
   
+
+<p><strong>Edit:</strong> Thanks to <a href="https://www.reddit.com/r/golang/comments/6w3lcn/adding_private_ssl_ca_cert_to_trust_pool_for_only/dm77ccl/">/u/epiris</a> for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post&hellip; completely missing the point! Whoops. Code sample is fixed now.</p>
+
+<hr />
 
 <p>At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.</p>
 
@@ -314,6 +330,7 @@ On application start, both the WebUI and API check for existence of a cert/key p
 
 import (
 	&quot;crypto/x509&quot;
+	&quot;flag&quot;
 	&quot;fmt&quot;
 	&quot;io/ioutil&quot;
 	&quot;log&quot;
@@ -322,10 +339,12 @@ import (
 
 const (
 	localCertFile = &quot;/usr/local/internal-ca/ca.crt&quot;
-	localKeyFile  = &quot;/usr/local/internal-ca/ca.key&quot;
 )
 
 func main() {
+	insecure := flag.Bool(&quot;insecure-ssl&quot;, false, &quot;Accept/Ignore all server SSL certificates&quot;)
+	flag.Parse()
+
 	// Get the SystemCertPool, continue with an empty pool on error
 	rootCAs, _ := x509.SystemCertPool()
 	if rootCAs == nil {
@@ -343,18 +362,25 @@ func main() {
 		log.Println(&quot;No certs appended, using system certs only&quot;)
 	}
 
-	// Continue as before...
-	http.HandleFunc(&quot;/&quot;, handler)
-	srv := &amp;http.Server{
-		Addr: &quot;:443&quot;,
-		// Add timeouts, etc
+	// Trust the augmented cert pool in our client
+	config := &amp;tls.Config{
+		InsecureSkipVerify: *insecure,
+		RootCAs:            rootCAs,
 	}
+	tr := &amp;http.Transport{TLSClientConfig: config}
+	client := &amp;http.Client{Transport: tr}
 
-	log.Fatal(srv.ListenAndServeTLS(localCertFile, localKeyFile))
-}
+	// Uses local self-signed cert
+	req := http.NewRequest(http.MethodGet, &quot;https://localhost/api/version&quot;, nil)
+	resp, err := client.Do(req)
+	// Handle resp and err
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, &quot;We did it!&quot;)
+	// Still works with host-trusted CAs!
+	req = http.NewRequest(http.MethodGet, &quot;https://example.com/&quot;, nil)
+	resp, err = client.Do(req)
+	// Handle resp and err
+
+	// ...
 }
 </code></pre>
 

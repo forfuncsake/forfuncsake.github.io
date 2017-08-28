@@ -231,16 +231,27 @@
   
 
   
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/ssl">ssl</a>
+    
+  </div>
+  
+  
 
 </div>
 
   </header>
 
   <p>
-  At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
+  Edit: Thanks to /u/epiris for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post&hellip; completely missing the point! Whoops. Code sample is fixed now.
+At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
 Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&rsquo;t bore you with it here.
-Our system is (now) modeled as follows:
- +---------+ | Backend | +----^----+ | +---+---+ +-&gt; | API | &lt;-+ | +-------+ | https | | v | +---+---+ | | WebUI | | https +---+---+ | ^ | https | | v v +----+----+ +---+---+ | Browser | | CLI | +---------+ +-------+   The Backend and API always run on the same server The WebUI typically runs on the same server, but can run anywhere The CLI typically runs on a client workstation, but can run on the server The Browser (e.
   </p>
 
   

@@ -17,10 +17,9 @@
       <pubDate>Sat, 26 Aug 2017 13:57:07 +1000</pubDate>
       
       <guid>https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/</guid>
-      <description>At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
-Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&amp;rsquo;t bore you with it here.
-Our system is (now) modeled as follows:
- +---------+ | Backend | +----^----+ | +---+---+ +-&amp;gt; | API | &amp;lt;-+ | +-------+ | https | | v | +---+---+ | | WebUI | | https +---+---+ | ^ | https | | v v +----+----+ +---+---+ | Browser | | CLI | +---------+ +-------+   The Backend and API always run on the same server The WebUI typically runs on the same server, but can run anywhere The CLI typically runs on a client workstation, but can run on the server The Browser (e.</description>
+      <description>Edit: Thanks to /u/epiris for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post&amp;hellip; completely missing the point! Whoops. Code sample is fixed now.
+At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
+Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&amp;rsquo;t bore you with it here.</description>
     </item>
     
     <item>
