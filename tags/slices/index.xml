@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on for func() sake { }</title>
-    <link>https://forfuncsake.github.io/tags/golang/</link>
-    <description>Recent content in Golang on for func() sake { }</description>
+    <title>Slices on for func() sake { }</title>
+    <link>https://forfuncsake.github.io/tags/slices/</link>
+    <description>Recent content in Slices on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 01 Sep 2017 23:00:32 +1000</lastBuildDate>
     
-	<atom:link href="https://forfuncsake.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://forfuncsake.github.io/tags/slices/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,17 +22,6 @@ Earlier this week, I was wrong.
 While browsing the net/http sources, I spotted what appears to be an index out of range in calls to http.Request.BasicAuth().
 Decoding func parseBasicAuth():
  If the value string has prefix &amp;ldquo;Basic &amp;ldquo; base64 decode the remainder of the string find the index of the first colon (:) in the decoded result return username and password as the substrings before and after the colon, respectively  But wait - what if there&amp;rsquo;s nothing after the colon?</description>
-    </item>
-    
-    <item>
-      <title>How To Trust Extra CA Certs In Your Go App</title>
-      <link>https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/</link>
-      <pubDate>Sat, 26 Aug 2017 13:57:07 +1000</pubDate>
-      
-      <guid>https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/</guid>
-      <description>Edit: Thanks to /u/epiris for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post&amp;hellip; completely missing the point! Whoops. Code sample is fixed now.
-At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
-Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&amp;rsquo;t bore you with it here.</description>
     </item>
     
   </channel>

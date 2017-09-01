@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.25.1" />
 
-  <title>Tags &middot; for func() sake { }</title>
+  <title>Slices &middot; for func() sake { }</title>
 
   
   
@@ -37,7 +37,7 @@
 
   
   
-  <link rel="alternate" type="application/rss+xml" title="for func() sake { }" href="https://forfuncsake.github.io/tags/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="for func() sake { }" href="https://forfuncsake.github.io/tags/slices/index.xml" />
   
 
   
@@ -100,7 +100,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://forfuncsake.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="https://forfuncsake.github.io/tags/slices/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -209,28 +209,60 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Slices</h1>
 </div>
+
 <div class="content">
-  <ul>
+  
+    <article>
+  <header>
+    <h2><a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/">When Go Slice Bounds Get Hazy</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Fri Sep 01, 2017</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="golang">golang</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="slices">slices</a>
-      <span>&#40;1&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/slices">slices</a>
+    
+  </div>
   
-    <li>
-      <a href="ssl">ssl</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-  </ul>
+
+</div>
+
+  </header>
+
+  <p>
+  Earlier this week, I thought I stumbled across a bug in the go standard library.
+Earlier this week, I was wrong.
+While browsing the net/http sources, I spotted what appears to be an index out of range in calls to http.Request.BasicAuth().
+Decoding func parseBasicAuth():
+ If the value string has prefix &ldquo;Basic &ldquo; base64 decode the remainder of the string find the index of the first colon (:) in the decoded result return username and password as the substrings before and after the colon, respectively  But wait - what if there&rsquo;s nothing after the colon?
+  </p>
+
+  
+  <footer>
+    <a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
 </div>
 
 </div>

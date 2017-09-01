@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.25.1" />
 
-  <title>for func() sake { }</title>
+  <title>When Go Slice Bounds Get Hazy &middot; for func() sake { }</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="for func() sake { }" href="https://forfuncsake.github.io/index.xml" />
   
 
   
@@ -98,10 +96,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://forfuncsake.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -209,17 +203,12 @@
 
 
 <div class="header">
-  <h1>for func() sake { }</h1>
-  <h2>Yet another gopher...</h2>
+  <h1>When Go Slice Bounds Get Hazy</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/">When Go Slice Bounds Get Hazy</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
@@ -246,143 +235,137 @@
 
 </div>
 
-  </header>
+  <p>Earlier this week, I thought I stumbled across a bug in the go standard library.<br />
+Earlier this week, I was wrong.</p>
 
-  <p>
-  Earlier this week, I thought I stumbled across a bug in the go standard library.
-Earlier this week, I was wrong.
-While browsing the net/http sources, I spotted what appears to be an index out of range in calls to http.Request.BasicAuth().
-Decoding func parseBasicAuth():
- If the value string has prefix &ldquo;Basic &ldquo; base64 decode the remainder of the string find the index of the first colon (:) in the decoded result return username and password as the substrings before and after the colon, respectively  But wait - what if there&rsquo;s nothing after the colon?
-  </p>
+<p>While browsing the net/http sources, I spotted what appears to be an <a href="https://github.com/golang/go/blob/f9cf8e5ab11c7ea3f1b9fde302c0a325df020b1a/src/net/http/request.go#L869">index out of range</a> in calls to <code>http.Request.BasicAuth()</code>.</p>
+
+<p>Decoding <code>func parseBasicAuth()</code>:</p>
+
+<ul>
+<li>If the value string has prefix &ldquo;Basic &ldquo;</li>
+<li>base64 decode the remainder of the string</li>
+<li>find the index of the first colon (:) in the decoded result</li>
+<li>return username and password as the substrings before and after the colon, respectively</li>
+</ul>
+
+<p>But wait - what if there&rsquo;s nothing after the colon?</p>
+
+<p>I posited that crafting an HTTP request with an Authorization header with nothing after the colon should result in a runtime error, so quickly threw together a simple http server that calls to <code>BasicAuth()</code>, started it, then tested with the following client code:</p>
+
+<pre><code>	enc := base64.StdEncoding.EncodeToString([]byte(&quot;username:&quot;))
+	auth := fmt.Sprintf(&quot;Basic %s&quot;, enc)
+	r.Header.Set(&quot;Authorization&quot;, auth)
+
+	http.DefaultClient.Do(r)
+</code></pre>
+
+<p>&hellip; and nothing happened.</p>
+
+<p>Today I discovered that it&rsquo;s legal to slice an <code>array</code> or <code>string</code> <em>from</em> its length to its end.</p>
+
+<blockquote>
+<p>For arrays or strings, the indices are in range if 0 &lt;= low &lt;= high &lt;= len(a), otherwise they are out of range.<br />
+ &ndash; <em>The Go Programming Language Specification</em></p>
+</blockquote>
+
+<p>Here is some code to demonstrate, runnable in <a href="https://play.golang.org/p/PtgLSjCl2g">The Playground</a>:</p>
+
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+)
+
+func main() {
+
+	// Start with a string
+	s := &quot;index&quot;
+	fmt.Println(&quot;The string is:&quot;, s)
+
+	// What's at index 0?
+	fmt.Printf(&quot;The letter at index %d is: %s\n&quot;, 0, string(s[0])) // output: &quot;i&quot;
+
+	// Now as a slice 0:0
+	fmt.Printf(&quot;The letter at slice [%d:%d] is: %s\n&quot;, 0, 0, string(s[0:0])) // output: &quot;&quot;
+
+	// Now as a slice 1:1
+	fmt.Printf(&quot;The letter at slice [%d:%d] is: %s\n... and so on\n\n&quot;, 1, 1, string(s[1:1])) // output: &quot;&quot;
+
+	// Now as a slice 0:1
+	fmt.Printf(&quot;The letter at slice [%d:%d] is: %s\n&quot;, 0, 1, string(s[0:1])) // output: &quot;i&quot;
+
+	// Now as a slice 0:1
+	fmt.Printf(&quot;The letter at slice [%d:%d] is: %s\n... and so on\n\n&quot;, 1, 2, string(s[1:2])) // output: &quot;n&quot;
+
+	// last index == len(s) - 1
+	fmt.Printf(&quot;The letter at final index %d [len(s) - 1] is: %s\n&quot;, len(s)-1, string(s[len(s)-1])) // output: &quot;x&quot;
+
+	// When we go beyond that, we panic
+	printPanic(s)
+
+	// But for some reason, this is OK when slicing
+	fmt.Printf(&quot;\nThe letter at slice [%d:] is: %s\n&quot;, len(s), string(s[len(s):])) // output: &quot;&quot;
+}
+
+func printPanic(s string) {
+	defer func() {
+		if r := recover(); r != nil {
+			fmt.Println(&quot;panic recovered: &quot;, r)
+		}
+	}()
+
+	fmt.Printf(&quot;The letter at index %d is: &quot;, len(s))
+	fmt.Printf(&quot; %s\n&quot;, string(s[len(s)]))
+}
+</code></pre>
+
 
   
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/">How To Trust Extra CA Certs In Your Go App</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat Aug 26, 2017</time>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/"><i class="fa fa-chevron-left"></i></a>
+    
   </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/golang">golang</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/ssl">ssl</a>
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/">How To Trust Extra CA Certs In Your Go App</a>
+    </nav>
     
   </div>
-  
-  
-
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  Edit: Thanks to /u/epiris for pointing out that I actually posted a server-side code example, not client side. I think I got distracted while finishing off the post&hellip; completely missing the point! Whoops. Code sample is fixed now.
-At work this week, I was tasked with updating a couple of older internal go applications currently serving HTTP to serve HTTPS instead.
-Generally, go makes this a pretty simple task and there are plenty of existing guides on the web that cover the process, so I won&rsquo;t bore you with it here.
-  </p>
 
   
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/08/trust-extra-ca-cert-in-go-app/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/">Blog Version Control</a></h2>
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
 
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Thu Jul 13, 2017</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Following on from my last post&hellip;
-The Hugo Quickstart Guide gives instructions on setting up version control and publishing a site on GitHub Pages - but using the method of pushing to a gh-pages branch.
-This is the typical path for a &ldquo;project site&rdquo;, but a user site (with no repository in the URL) will publish to Pages only from the master branch. So adding the hugo files to version control required me to either start another project - or just be sensible about it and use a non-master branch of the user project (which must be named &lt;username&gt;.
-  </p>
-
-  
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/07/blog-version-control/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://forfuncsake.github.io/post/2017/07/package-blog/">package blog</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Wed Jul 12, 2017</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  </header>
-
-  <p>
-  Every blog needs a first post, and what better subject to record than the birth of this blog.
-Last weekend, I was reading a particular reddit post and noticed the OPs username forfunc. I&rsquo;ve also been watching (and loving!) @francesc&rsquo;s JustForFunc channel. I like the wordplay and thought myself very clever indeed when I came up with &ldquo;for func sake&rdquo;&hellip;
-It just so happened that the username was available in the places I want to use it; and I&rsquo;ve been less than thrilled with my previous username choice(s)&hellip; so I spent an hour or so creating new accounts across the web.
-  </p>
-
-  
-  <footer>
-    <a href="https://forfuncsake.github.io/post/2017/07/package-blog/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-
-  
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </div>
