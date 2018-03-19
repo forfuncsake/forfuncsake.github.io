@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <title>DIY Smart Garage Door with HomeKit - Part 1 &middot; for func() sake { }</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
+
+
+  
+    <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://forfuncsake.github.io/">for func() sake</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/forfuncsake" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://reddit.com/user/forfuncsake" target="_blank"><i class="fa fa-reddit-square fa-fw"></i>Reddit</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/forfuncsake" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>DIY Smart Garage Door with HomeKit - Part 1</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sun Mar 18, 2018</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/complete.jpg#center" alt="Complete DIY Controller Hardware">
+</div>
+
+
+<p>While looking for parts of my house that I want to bring into the Smart Home/IOT era, I started searching for DIY &ldquo;smart&rdquo; devices to get started on a low budget.</p>
+
+<p>One blog post titled <a href="http://www.simpleiothings.com/build-a-10-wifi-smart-button/">$10 DIY Wifi Smart Button / Switch</a> caught my attention with the ESP8266 Development Board - this is a very cheap and convenient board that can be powered via USB, flashed using Arduino IDE (along with several other methods) and has built-in WiFi.</p>
+
+<p>I promptly ordered a few dev boards from <a href="https://www.aliexpress.com/item/2015-New-product-Wireless-module-NodeMcu-Lua-Wifi-Nodemcu-WIFI-Network-Development-Board-Based-ESP8266-High/32521100830.html">AliExpress</a> and started experimenting when they arrived.<br />
+My first &ldquo;victim&rdquo; would be the hard-wired button on my Garage Door Opener. By interfacing only with the button, there&rsquo;s no need to modify the opener itself - which is always a win.</p>
+
+<p>The initial high-level goal for the project was to control my garage door via our Google Home, but I quickly discovered that Google sends custom command packets from their cloud servers, not directly from the in-home device (to handle requests coming from Google Assistant on any authorised device).<br />
+Apple HomeKit, on the other hand, supports local-only connections. As I wanted to stay on my private network for the first iteration, I decided to implement with HomeKit first and come back to Google later.</p>
+
+<h2 id="enter-homecontrol-https-github-com-brutella-hc"><em>Enter <a href="https://github.com/brutella/hc">HomeControl</a></em> &hellip;</h2>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/home.jpg#center" alt="Apple Home UI showing Garage Door">
+</div>
+
+
+<p>Matthias Hochgatterer has provided this incredible implementation of HomeKit Accessory Protocol (HAP) in go, so not only did I get to dabble with HomeKit, I got to do it <a href="https://www.youtube.com/watch?v=uYXX4FCL-uw&amp;t=6">Gopher Style</a> (sorry!).</p>
+
+<p>The software project currently consists of 3 parts:</p>
+
+<ul>
+<li>ESP8266 firmware: Handles the sensors and button, with some intelligent open/close control</li>
+<li>Go binary (gdhk): Small server that acts as a HomeKit proxy for the basic HTTP API on the ESP8266</li>
+<li>spk packaging script: I run the proxy on my Synology NAS, this packages it up for simple &ldquo;installation&rdquo; and management
+<br /></li>
+</ul>
+
+<h2 id="now-for-the-code">Now for the code</h2>
+
+<p>The first iteration of all my code was pushed to <a href="https://github.com/forfuncsake/garagedoor/tree/73a2f98a15135c128b2301478ea8d917225c66bc">https://github.com/forfuncsake/garagedoor</a>.</p>
+
+<p>Because I hope to also add Google Assistant support in the future, most of the door control logic is implemented on the ESP8266, with only the HomeKit-specific parts being handled in the proxy.</p>
+
+<p><strong><em>ESP8266 Firmware</em></strong></p>
+
+<p>The basic HTTP API has 4 endpoints:</p>
+
+<ul>
+<li><code>GET /</code> :  Responds with the current state of the door</li>
+<li><code>POST /open</code> :  Attempt to open the door</li>
+<li><code>POST /close</code> :  Attempt to close the door</li>
+<li><code>POST /press</code> :  Activate the button, regardless of door state</li>
+</ul>
+
+<p>Door state is determined by the state of an &ldquo;open&rdquo; sensor (active when the door is fully open) and a &ldquo;closed&rdquo; sensor (active when the door is fully closed). If the door is neither fully open or closed, it must be partly open. My door takes 15-16 seconds to transition between states, so I added a 16 second timer to track the transitional states of &ldquo;opening&rdquo; and &ldquo;closing&rdquo;.</p>
+
+<p>When sending an <code>open</code> or <code>close</code> command, the API will only activate the button if the door is known to be in the expected &ldquo;starting state&rdquo;. If requested while the door is known to be in transition, an <code>HTTP 400</code> is returned (and obviously, the button is not activated).</p>
+
+<p>Any time a change of state is detected in either of the sensors, a refresh request it sent to the HomeKit proxy. The proxy then captures the new state and - if required - sends an <code>EVENT</code> to connected HomeKit clients. This means I get notifications on my iPhone when the door opens and closes, even via the existing button or remotes.</p>
+
+<p><strong><em>HomeKit Proxy in Go</em></strong></p>
+
+<p>The implementation of the HomeKit proxy is very simple, thanks to the <code>hc</code> project.<br />
+I simply needed to create a new &ldquo;Accessory&rdquo; type that has a garage door opener and also a switch; and implement a few functions to proxy requests to the API on the ESP8266. The <em>opener</em> interfaces to the API to get the current door status and to send &ldquo;open&rdquo; and &ldquo;close&rdquo; requests. The <em>switch</em> is connected to the &ldquo;/press&rdquo; endpoint to enable explicit button presses (to stop the door part way, or resume if it was previously stopped).</p>
+
+<p><strong><em>Packaging the proxy for Synology</em></strong></p>
+
+<p>Having worked extensively with SynoCommunity&rsquo;s spksrc in the past, I knew the simplest way to get a service running on my Synology (and persisting over reboots) was to package it up as in SPK.<br />
+Thankfully, the process is quite straightforward. I created the requisite Makefile and scripts, put my cross-compiled binary in the right place, ran <code>make</code> and ended up with a neatly packaged spk for manual installation via the Synology DSM Web UI.</p>
+
+<p>For the time being, the required files are commited to my own git project, but they can be used as follows:</p>
+
+<pre><code>&gt; git clone https://github.com/forfuncsake/garagedoor
+&gt; cd garagedoor/cmd/gdhk
+&gt; GOOS=linux GOARCH=arm GOARM=5 go build #(adjust env vars for your Synology architecture)
+&gt; cd ../../..
+&gt; git clone https://github.com/synocommunity/spksrc
+&gt; cp -r garagedoor/spksrc/spk/garagedoor spksrc/spk/
+&gt; cd spksrc/spk/garagedoor
+&gt; make
+</code></pre>
+
+<h2 id="what-next">What Next?</h2>
+
+<p>I plan to refine all pieces of the software to make the solution more configurable and easier to share. See the project <a href="https://github.com/forfuncsake/garagedoor/issues">Issues</a> list for visibility into known issues and roadmap items.</p>
+
+<hr />
+
+<p>Stay tuned for Part 2, in which I will detail the hardware design and build, which has cost me somewhere around AUD$35.</p>
+
+<p>Here it is &ldquo;installed&rdquo; (literally hanging from a loose screw and blu-tac while I test). It&rsquo;s actually been working really well:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/installed.jpg#center" alt="Project installed for testing on Garage Door">
+</div>
+
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2017/09/when-go-slice-bounds-get-hazy/">When Go Slice Bounds Get Hazy</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://forfuncsake.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102737019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+
