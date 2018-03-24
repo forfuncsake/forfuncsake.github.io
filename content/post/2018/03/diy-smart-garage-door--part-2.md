@@ -1,7 +1,7 @@
 ---
 title: "DIY Smart Garage Door with HomeKit - Part 2"
 date: 2018-03-19T20:09:35+11:00
-draft: true
+draft: false
 ---
 
 The Hardware Build
