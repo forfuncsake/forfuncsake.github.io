@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <title>DIY Smart Garage Door with HomeKit - Part 2 &middot; for func() sake { }</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
+
+
+  
+    <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://forfuncsake.github.io/">for func() sake</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/forfuncsake" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://reddit.com/user/forfuncsake" target="_blank"><i class="fa fa-reddit-square fa-fw"></i>Reddit</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/forfuncsake" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>DIY Smart Garage Door with HomeKit - Part 2</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Mon Mar 19, 2018</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  
+
+<h1 id="the-hardware-build">The Hardware Build</h1>
+
+<p>This post will cover the design and build of my hardware solution for the DIY Smart Garage Door Controller, from its humble beginnings on the breadboard (pictured below) to final prototype.</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/breadboard.jpg#center" alt="ESP8266 on breadboard">
+</div>
+
+
+<p>The initial breadboard circuit was something I threw together to work on the software. It was based on a single momentary switch (button) simulating the door sensor, with an LED simulating the relay. Not a whole lot changed in the design, other than to add a second door sensor. The ability to detect a &ldquo;fully open&rdquo; state allowed me to remove the assumption that if the door was not fully closed, it was fully open.</p>
+
+<p>One goal of the design was to ensure that it would be simple to remove the NodeMCU board. I wanted to be able to reflash it with new software without the hassle of a full hardware teardown/install each time and without having to lug my laptop out to the garage. The result, while probbaly overkill, was a set of female headers on the main circuit board to house the NodeMCU as well as a set of connectors for the relay and sensors. Now it is simple to replace the either the NodeMCU board or the circuit board (perhaps with a PCB, one day).</p>
+
+<h2 id="parts-list">Parts List</h2>
+
+<p>To recreate my build from scratch, you will need the following parts:</p>
+
+<ul>
+<li>ESP8266 (NodeMCU) Development Board</li>
+<li>1 x 5v Relay board</li>
+<li>2 x magnetic reed switch</li>
+<li>1 x perfboard</li>
+<li>2 x 15-pin single-row female header</li>
+<li>1 x 3-pin 90-degree male connector</li>
+<li>1 x 4-pin 90-degree male connector</li>
+<li>1 x 4-pin female connector</li>
+<li>2 x 3-pin female connector</li>
+<li>2 x 10kΩ resistors</li>
+<li>1 x project box</li>
+<li>various jumper/hookup wires
+<br /></li>
+</ul>
+
+<p>I purchased everything from my local <a href="https://www.jaycar.com.au/">electronics store</a>, except for the NodeMCU board.
+My build price was somewhere around AUD$35 (assuming I will use the leftovers for another project), but it could be a lot cheaper sourcing parts from ebay/aliexpress and/or skipping the connectors and soldering the sensor and relay wires directly to the circuit board.</p>
+
+<h2 id="circuit-board">Circuit Board</h2>
+
+<p>With the goals finalised, I modved on to circuit design and layout. Using <a href="http://fritzing.org/home/">Fritzing</a>, I set out my design for the (top of the) board. Unfortunately the fzz file was corrupted, and I can&rsquo;t be bothered remaking it&hellip; but here&rsquo;s a snap I took before I lost the file:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/fritzing.jpg#center" alt="Fritzing circuit board layout">
+</div>
+
+
+<p>&hellip;and a schematic of the system:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/schematic.jpg#center" alt="system schematic made on easyeda.com">
+</div>
+
+
+<p>The build required modification of some parts (cutting the perfboard and converting the 40-pin female header I bought into 2 x 15 pin), followed by soldering the parts into place and creating some solder bridges on the bottom of the board to close a few circuits. The completed board is pictured below, I was pretty happy that I had jumper wires coloured to match the design. Note that I swapped the centre 2 pins on the 4-pin connector to make life a little easier:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/perfboard1.jpg#center" alt="perf board top">
+</div>
+
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/perfboard2.jpg#center" alt="perf board bottom">
+</div>
+
+
+<p>Thankfully, I didn&rsquo;t need any rework (this time).
+All that&rsquo;s left is to assemble the connections: 2 wires from each reed switch go into the 4-pin female connector, then a 3-wire cable needs to be built to link the relay board to the 3-pin male (take care to connect + to Vcc, - to GND and S to D5). Add 2 wires to C and NO of the relay that connect into the garage door button then find a way to fit it all into the project box.</p>
+
+<p>I actually selected a project box that was a little too small, but found another container at home that was up to the task. The final images are of the system packaged into that box, then the complete hardware solution:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/packaged.jpg#center" alt="packaed into project box">
+</div>
+
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/garagedoor/complete.jpg#center" alt="complete solution">
+</div>
+
+
+<p>Pictures of the &ldquo;installation&rdquo; (a term I used very loosely) are available in my <a href="../diy-smart-garage-door--part-1/">previous post</a>; but essentially you need to have a power source, connections to the button (from the relay) and the reed switches positioned on the door so that they are able to detect fully closed and fully open states. The reed switch connected to pin D1 is for closed state, with D2 used for detecting open.</p>
+
+<p>Thanks for reading!</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2018/03/diy-smart-garage-door--part-1/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2018/03/diy-smart-garage-door--part-1/">DIY Smart Garage Door with HomeKit - Part 1</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://forfuncsake.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102737019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+
