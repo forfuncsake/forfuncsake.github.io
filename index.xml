@@ -6,10 +6,20 @@
     <description>Recent content on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 19 Mar 2018 20:09:35 +1100</lastBuildDate>
+    <lastBuildDate>Sun, 15 Mar 2020 11:19:39 +1100</lastBuildDate>
     
 	<atom:link href="https://forfuncsake.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>DIY GSX-R Servo Eliminator</title>
+      <link>https://forfuncsake.github.io/post/2020/03/diy-gsxr-servo-eliminator/</link>
+      <pubDate>Sun, 15 Mar 2020 11:19:39 +1100</pubDate>
+      
+      <guid>https://forfuncsake.github.io/post/2020/03/diy-gsxr-servo-eliminator/</guid>
+      <description>Recently the SET valve servo motor - known in the service manual as the Exhaust control valve actuator (EXCVA) - on my L2 (2012) Suzuki GSX-R750 failed. The initial symptom was a clicking sound during the startup cycle while the ECU tested the valve. The clicking is the result of one of the nylon gears inside the actuator becoming stripped, which essentially means that it&amp;rsquo;s toast!
+There are 3 main options available to deal with this issue:</description>
+    </item>
     
     <item>
       <title>DIY Smart Garage Door with HomeKit - Part 2</title>
