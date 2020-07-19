@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://forfuncsake.github.io/post/2020/07/wifi-quick-config/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://forfuncsake.github.io/post/2020/03/diy-gsxr-servo-eliminator/</loc>
     <lastmod>2020-03-15T11:19:39+11:00</lastmod>
   </url>
@@ -49,14 +54,44 @@
   </url>
   
   <url>
+    <loc>https://forfuncsake.github.io/tags/iot/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://forfuncsake.github.io/tags/ip-camera/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://forfuncsake.github.io/post/</loc>
-    <lastmod>2020-03-15T11:19:39+11:00</lastmod>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://forfuncsake.github.io/tags/quickconfig/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://forfuncsake.github.io/tags/reverse-engineering/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://forfuncsake.github.io/tags/slices/</loc>
     <lastmod>2017-09-01T23:00:32+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://forfuncsake.github.io/tags/smartconfig/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,8 +113,14 @@
   </url>
   
   <url>
+    <loc>https://forfuncsake.github.io/tags/wifi/</loc>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://forfuncsake.github.io/</loc>
-    <lastmod>2020-03-15T11:19:39+11:00</lastmod>
+    <lastmod>2020-07-17T21:25:26+10:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -6,10 +6,19 @@
     <description>Recent content in Posts on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Mar 2020 11:19:39 +1100</lastBuildDate>
+    <lastBuildDate>Fri, 17 Jul 2020 21:25:26 +1000</lastBuildDate>
     
 	<atom:link href="https://forfuncsake.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reversing WiFi QuickConfig for an IP Cam</title>
+      <link>https://forfuncsake.github.io/post/2020/07/wifi-quick-config/</link>
+      <pubDate>Fri, 17 Jul 2020 21:25:26 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/post/2020/07/wifi-quick-config/</guid>
+      <description>The Camera I recently came across a really good deal on a WiFi Video Doorbell being cleared out by AusPost for AU$29 a pop (specifically, the Q-See QDB03-AU). The unit comes packaged with a pair of 18650 Lithium-ion batteries that are claimed to provide up to 6 months standby and has a list of features that include 2-way talk, PIR motion sensing and local SD card recording (card not included).</description>
+    </item>
     
     <item>
       <title>DIY GSX-R Servo Eliminator</title>

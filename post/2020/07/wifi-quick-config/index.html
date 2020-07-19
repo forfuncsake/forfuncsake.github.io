@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <title>Reversing WiFi QuickConfig for an IP Cam &middot; for func() sake { }</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
+
+
+  
+    <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://forfuncsake.github.io/">for func() sake</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/forfuncsake" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://reddit.com/user/forfuncsake" target="_blank"><i class="fa fa-reddit-square fa-fw"></i>Reddit</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/forfuncsake" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Reversing WiFi QuickConfig for an IP Cam</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Fri Jul 17, 2020</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/iot">IoT</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/ip-camera">IP Camera</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/reverse-engineering">Reverse Engineering</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/wifi">WiFi</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/smartconfig">smartconfig</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/quickconfig">quickconfig</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/ipcam/box.png#center" alt="QDB03-AU Video Camera Doorbell retail box">
+</div>
+
+
+<h2 id="the-camera">The Camera</h2>
+
+<p>I recently came across a really good deal on a WiFi Video Doorbell being cleared out by AusPost for AU$29 a pop (specifically, the <a href="https://www.q-see.com.au/product/qdb03-au/">Q-See QDB03-AU</a>). The unit comes packaged with a pair of <a href="https://en.wikipedia.org/wiki/List_of_battery_sizes#Lithium-ion_batteries_(rechargeable)">18650 Lithium-ion batteries</a> that are claimed to provide up to 6 months standby and has a list of features that include 2-way talk, PIR motion sensing and local SD card recording (card not included). While I had no doubts that this thing would default to bouncing all of my video feeds (among other things) through a manufacturer&rsquo;s &ldquo;cloud&rdquo;, I couldn&rsquo;t resist ordering one as a personal research project. If I&rsquo;m lucky, there will be an RTSP stream available to send to my own NVR and the cam will never need to see the internet.</p>
+
+<p>After the camera arrived, the first step was to get it connected to a wireless network. The instructions specify that this is to be achieved via an app (&ldquo;QHSmart&rdquo;) on an Android or iOS device. I was never intending to follow the instructions, so the <strong>real</strong> first step was actually to whip out a screwdriver and take a peek inside. The main chip is a <a href="https://cdn.hackaday.io/files/19356828127104/Hi3518%20DataSheet.pdf">Hi3518 IP Cam SoC</a> with an Hi1131 WiFi module. No shocking discoveries at this stage meant that I could move on to powering it up.</p>
+
+<h2 id="the-protocol">The Protocol</h2>
+
+<p>Assuming that this device would use a similar initial setup mechanism to other WiFi devices that I have (light bulbs and sockets), I fired up <a href="https://github.com/ct-Open-Source/tuya-convert">tuya-convert</a> on a laptop with Kali Linux&hellip; and while that tool was not able to configure the device network settings directly, it did provide me with an isolated wireless network on which to continue my research.</p>
+
+<p>Some WiFi devices let you provide your network details by starting themselves up in WiFi Access Point mode. You connect to the device network and then, via browser or app, input your network credentials (hopefully encrypted), then the device joins your main network. Some other devices provide a &ldquo;simpler&rdquo; method where you stay connected to your main network, enter the WiFi password into their app and wait for the new device to join. This method &ldquo;works around&rdquo; the security of WiFi by <em>encoding</em> the details into packets in a way that lets the new device &ldquo;sniff&rdquo; them out of the air even without being able to decrypt the packet data.</p>
+
+<p>The QHSmart app didn&rsquo;t play nicely with my iPhone 11 (or perhaps modern iOS), so I downloaded it to an older iPad Mini then attached that to the test network to capture packets while using the app to set up the camera. Instead of a barrage of packets with varying lengths (per tuya-convert), what I saw was a barrage of packets with the same length but to different destinations. Nothing appeared noteworthy about the timing of the packets (think infrared signal pulses), leaving only the MAC addresses that would be visible to a client without the network password. I ran the config a couple of times with mock passwords and compared the output sequence of MAC addresses captured.</p>
+
+<p><code>$ tshark -r camera-0.pcap -nn -e eth.dst -Tfields &gt; dest_macs_0.txt</code><br />
+<code>$ tshark -r camera-1.pcap -nn -e eth.dst -Tfields &gt; dest_macs_1.txt</code></p>
+
+<p>At this point I was able to learn that:</p>
+
+<ul>
+<li>All of the MAC addresses had OUI <code>01:00:5e</code> (IPv4 Multicast)</li>
+<li>The config sequence appears to be 48 packets, repeated over and over again</li>
+<li>The packets are each sent twice in a row (so only 24 distinct packets)</li>
+<li>The 4th byte appeared to identify &ldquo;sections&rdquo; of the config</li>
+<li>The data is contained only in the last 2 bytes of each MAC</li>
+</ul>
+
+<p>After clearing out the duplicate rows:<br />
+<code>$ diff -y dest_macs_0.txt dest_macs_1.txt</code></p>
+
+<pre><code>01:00:5e:00:48:92      01:00:5e:00:48:92
+01:00:5e:01:2b:53      01:00:5e:01:2b:53
+01:00:5e:02:5f:fc      01:00:5e:02:5f:fc
+01:00:5e:20:0a:0a      01:00:5e:20:0a:0a
+01:00:5e:40:61:60    | 01:00:5e:40:60:61
+01:00:5e:41:63:62    | 01:00:5e:41:62:63
+01:00:5e:42:65:64    | 01:00:5e:42:64:65
+01:00:5e:43:67:66    | 01:00:5e:43:66:67
+01:00:5e:44:69:68    | 01:00:5e:44:68:69
+01:00:5e:60:f0:07    | 01:00:5e:60:72:c0
+01:00:5e:61:59:cd    | 01:00:5e:61:ea:f7
+01:00:5e:10:0c:0c      01:00:5e:10:0c:0c
+01:00:5e:30:74:76      01:00:5e:30:74:76
+01:00:5e:31:75:72      01:00:5e:31:75:72
+01:00:5e:32:74:73      01:00:5e:32:74:73
+01:00:5e:33:66:2d      01:00:5e:33:66:2d
+01:00:5e:34:61:6c      01:00:5e:34:61:6c
+01:00:5e:35:68:73      01:00:5e:35:68:73
+01:00:5e:50:cc:88      01:00:5e:50:cc:88
+01:00:5e:51:5e:f7      01:00:5e:51:5e:f7
+01:00:5e:70:23:23      01:00:5e:70:23:23
+</code></pre>
+
+<p>The <code>diff</code> showed me that changing the password only modified 7 MAC addresses in the sequence, with everything else remaining the same - this essentially confirmed the idea that 4th byte identifies sections, as 2 sections had changed (to be identified later as the password and the checksum sections). Continuing on, I captured the traffic sequences with different password lengths and values (<code>1234567890</code>, <code>aaaa</code>, <code>AAAA</code>, <code>zzzz</code>, <code>ZZZZ</code>, plus many more) along with some changes to the SSID value. The SSID was not obfuscated at all, the MAC address bytes translated directly to ASCII values. The password section, at least for the first character, showed a clear correlation between the the ASCII value of each input character and the resulting MAC address byte, but unfortunately the subsequent character bytes appeared to also be shifted by some additional value, so I needed to keep digging.</p>
+
+<p>With an initial focus on changing just the first character of the password, something odd was happening each 16th ASCII character. Each time the lower 4 bits rolled over from <code>1111</code> (<code>0xf</code>) to <code>0000</code> (<code>0x0</code>), the higher 4 bits would decrement by one instead of increment (e.g. <code>0x4e</code> -&gt; <code>0x4f</code> -&gt; <code>0x30</code> -&gt; <code>0x31</code>). There was also no value where the higher 4 bits produced a <code>0x5</code>, a clue!</p>
+
+<h2 id="introducing-my-obfuscating-friend-xor">Introducing my obfuscating friend XOR</h2>
+
+<p>You would never broadcast the WiFi password in plain text for the world to see, right? That would be dumb. What&rsquo;s that? Encoding or obfuscating it doesn&rsquo;t actually make it any more secure? Oops, well&hellip; that&rsquo;s awkward.</p>
+
+<p>The first character of the password is encoded by calculating the XOR (exclusive OR) of the characters ASCII value (in hex) and <code>0x50</code>, like this for &ldquo;<code>a</code>&rdquo; which is ASCII <code>0x61</code>:</p>
+
+<p><code>01100001</code>  (<code>0x61</code>)<br />
+<code>01010000</code>  (<code>0x50</code>)<br />
+<code>========</code><br />
+<code>00110001</code>  (XOR Result = <code>0x31</code>)</p>
+
+<p>This is consistent with the packets captured when &ldquo;<code>a</code>&rdquo; was the first letter of the password.<br />
+In fact, all of the characters are simply encoded via an XOR against <code>0x50+i</code>, where <code>i</code> is the index of the character in the password, which for the first character is just <code>0</code>. The reverse of an XOR is the same XOR, so decoding the password is a matter of taking the byte values from the MAC address, XORing them against <code>0x50+i</code> to get the original ASCII value.</p>
+
+<h2 id="checksum-time">Checksum Time</h2>
+
+<p>The 2 packets after the password were most likely to be some kind of checksum. With a lucky first guess, I put the encoded password bytes into <a href="https://www.scadacore.com/tools/programming-calculators/online-checksum-calculator/">this checksum calculator</a> and confirmed that the 4 bytes are a basic CRC-32. The same method is used to calculate a checksum of the SSID section.</p>
+
+<h2 id="putting-it-all-together">Putting It All Together</h2>
+
+<p>The following diagram shows a breakdown of the sections in the config sequence and the values that can be decoded using the methods described above:</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://forfuncsake.github.io/img/ipcam/data-sequence.png#center" alt="data decoded from MAC address sequence with colours">
+</div>
+
+
+<p>Note that the prefix data bytes, while they do change between launches of the mobile app, don&rsquo;t seem to hold any meaning (that I could find), and the suffix address is always static.</p>
+
+<h1 id="so-now-what">So Now What?</h1>
+
+<p>After the camera WiFi was successfully configured and it joined the (still isolated) network, its DNS queries quickly identified it as a <a href="https://sec-consult.com/en/blog/2018/10/millions-of-xiongmai-video-surveillance-devices-can-be-hacked-via-cloud-feature-xmeye-p2p-cloud/">Xiongmai</a> device. With a growing list of XM devices on the market, this configuration method can likely be recycled for many of them, so I put together a little tool <a href="https://github.com/forfuncsake/xmquickconfig">xmquickconfig</a> that can generate the required packet sequence from an SSID/Password pair.</p>
+
+<p>Now that the camera is attached to my test network, the next step is to try to interface with it, the details of which will likely make it into a future post.</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2020/03/diy-gsxr-servo-eliminator/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2020/03/diy-gsxr-servo-eliminator/">DIY GSX-R Servo Eliminator</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://forfuncsake.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102737019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+
