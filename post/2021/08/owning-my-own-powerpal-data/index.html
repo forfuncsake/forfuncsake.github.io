@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.25.1" />
+
+  <title>Owning My Own Powerpal Data &middot; for func() sake { }</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://forfuncsake.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://forfuncsake.github.io/img/favicon.ico" type="image/x-icon" />
+
+
+  
+    <link rel="stylesheet" href="https://forfuncsake.github.io/css/overrides.css">
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://forfuncsake.github.io/">for func() sake</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://forfuncsake.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/forfuncsake" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://reddit.com/user/forfuncsake" target="_blank"><i class="fa fa-reddit-square fa-fw"></i>Reddit</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/forfuncsake" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2017. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Owning My Own Powerpal Data</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sun Aug 22, 2021</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/iot">IoT</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/powerpal">Powerpal</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/energy-monitoring">Energy Monitoring</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/ble">BLE</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/golang">golang</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/mitm">mitm</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://forfuncsake.github.io/tags/mitmproxy">mitmproxy</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<p>If you haven&rsquo;t heard of Powerpal, it&rsquo;s a little Bluetooth Low-Energy (BLE) device available in Australia that attaches to your residential electricity meter to collect and display realtime and historic energy usage data via a mobile app.
+This alone is pretty awesome, but if you&rsquo;re in the state of Victoria, you can also get one for free under the Victorian Government Energy Upgrades scheme.</p>
+
+
+<div class="pure-u-1">
+  <img class="pure-img" src="https://storage.googleapis.com/powerpal/images/product-hero.jpg?v=4#center" alt="Powerpal device with iPhone running the Powerpal app">
+</div>
+
+
+<p>&hellip; and if you claim yours via my referral link, I get $5: <a href="https://www.powerpal.net/invite/4L997H9C">https://www.powerpal.net/invite/4L997H9C</a></p>
+
+<p>Being able to see realtime usage data is great for finding power hogs in the home, but you can only view your data in the app or via manually exported CSV files of up to 90 days each, and the mobile device needs to be in BLE range to see realtime usage.</p>
+
+<p>Here&rsquo;s the good news: When you pair additional mobile devices to your Powerpal, only one device needs to be in BLE range; it will upload the data to Powerpal servers periodically and your other devices can poll the server for updated (~15min delayed chunks) meter readings. But we&rsquo;re still restricted to only viewing data in the app.</p>
+
+<p>I run HomeAssistant and would love to be able to add my power usage to a dashboard, and maybe even use it to trigger notifications or events. In researching if this would be possible, I came across a <a href="https://forums.whirlpool.net.au/archive/322nx083">whirlpool thread</a> where plenty of people have similar ideas; and that&rsquo;s where I learned about the aforementioned remote viewing capabilities (on a second mobile device) and that there is a <a href="https://readings.powerpal.net/documentation">partner API</a> available.</p>
+
+<p>I quickly set up the app on our iPad, paired to the Powerpal, switched off bluetooth, reconnected my phone to the Powerpal and checked my PiHole dashboard. It showed that the iPad was looking up <code>readings.powerpal.net</code> (the same server hosting the partner API). Was it actually just using the same API? (I mean, why would you build two APIs?)</p>
+
+<h2 id="enter-mitmproxy">Enter mitmproxy</h2>
+
+<p>This is not a guide on setting up mitmproxy, so at a very high level, my next steps were:</p>
+
+<ul>
+<li><code>brew install mitmproxy</code></li>
+<li>run <code>mitmweb</code></li>
+<li><a href="https://www.howtogeek.com/293676/how-to-configure-a-proxy-server-on-an-iphone-or-ipad/">set up iOS</a> to use mitmweb (<code>server: &lt;macbook-ip&gt; port: 8080</code>) as the HTTP proxy</li>
+<li><a href="https://docs.mitmproxy.org/stable/concepts-certificates/">set up</a> the root cert trust on the iPad</li>
+<li>re-launch the Powerpal app</li>
+<li>capture and inspect HTTP flows</li>
+</ul>
+
+<p>Inspecting the flows confirmed that the app simply makes calls to the documented <code>readings</code> API. The API token used in the HTTP Authorization header was the same on both of my mobile devices, suggesting that it&rsquo;s stored on (or derived from) the Powerpal device, because my phone and iPad never negotiated with each other and there was no login phase in the app setup.</p>
+
+<p>At this point, I had all of the pieces needed to make API queries outside of the app&hellip; so I wrote a go utility!
+My repo can be found at <a href="https://github.com/forfuncsake/powerpal">https://github.com/forfuncsake/powerpal</a>. It supports querying the Powerpal API and exporting data to either CSV or InfluxDB. To run the utility, you will need to extract your own authorization token with mitmproxy or similar, after which the process to get the last 2 hours of data in CSV format looks a little something like:</p>
+
+<pre><code>ffs@shadow powerpal % git clone https://github.com/forfuncsake/powerpal
+ffs@shadow powerpal % cd powerpal
+ffs@shadow powerpal % read -s POWERPAL_DEVICE_SERIAL
+# enter your powerpal serial number, hit Enter
+ffs@shadow powerpal % read -s POWERPAL_API_TOKEN
+# enter your extracted powerpal api token, hit Enter
+ffs@shadow powerpal % export POWERPAL_DEVICE_SERIAL
+ffs@shadow powerpal % export POWERPAL_API_TOKEN
+ffs@shadow powerpal % go run ./examples/powerpal2csv -t 2h
+2021/08/17 22:41:03 Retrieved 120 new readings, saving to powerpal_export_1629204063.csv
+ffs@shadow powerpal %
+</code></pre>
+
+<p>With InfluxDB, we can load all available historic data on the first run, then just pull deltas on subsequent runs. To use with default values, set up an InfluxDB instance with an org value of &ldquo;home&rdquo;, and a bucket named &ldquo;data&rdquo;. You will also need to obtain an InfluxDB API key from your server, then:</p>
+
+<pre><code>ffs@shadow powerpal % git clone https://github.com/forfuncsake/powerpal
+ffs@shadow powerpal % cd powerpal
+ffs@shadow powerpal % read -s POWERPAL_DEVICE_SERIAL
+# enter your powerpal serial number, hit Enter
+ffs@shadow powerpal % read -s POWERPAL_API_TOKEN
+# enter your extracted powerpal api token, hit Enter
+ffs@shadow powerpal % read -s INFLUX_API_TOKEN
+# enter your influxDB api token, hit Enter
+ffs@shadow powerpal % export POWERPAL_DEVICE_SERIAL
+ffs@shadow powerpal % export POWERPAL_API_TOKEN
+ffs@shadow powerpal % export INFLUX_API_TOKEN
+ffs@shadow powerpal % go run  ./examples/powerpal2influxdb -s http://&lt;your influx instance address&gt;:8086 -o home -b data -m powerpal
+2021/08/22 13:42:46 No last record found, fetching all data after 1970-01-01 10:00:00 +1000 AEST...
+2021/08/22 13:42:46 Retrieved 27204 new readings
+writing to influxdb
+ffs@shadow powerpal % sleep 300
+ffs@shadow powerpal % go run  ./examples/powerpal2influxdb -s http://&lt;your influx instance address&gt;:8086 -o home -b data -m powerpal
+2021/08/22 13:48:03 Retrieved 5 new readings
+writing to influxdb
+ffs@shadow powerpal %
+</code></pre>
+
+<p>All of the raw data points (meter pulses, watt hours, cost, etc, per minute) are now in the InfluxDB instance, and can be queried to present in any way you like. Here&rsquo;s a screenshot of the daily totals from the Powerpal app against the same data represented in InfluxDB:</p>
+
+
+
+<div class="pure-g">
+
+  
+  
+  
+  
+  <div class="pure-u-1-2">
+    <div style="padding: 0 .2em">
+      <img
+        class="pure-img-responsive"
+        src="https://forfuncsake.github.io/img/powerpal/pp-august-daily.png"
+        alt="powerpal app graph of daily totals for august 2021">
+    </div>
+  </div>
+  
+
+  
+  
+  
+  
+  <div class="pure-u-1-2">
+    <div style="padding: 0 .2em">
+      <img
+        class="pure-img-responsive"
+        src="https://forfuncsake.github.io/img/powerpal/influx-august-daily.png"
+        alt="influxdb graph of daily totals for august 2021">
+    </div>
+  </div>
+  
+
+</div>
+
+
+<p>My next goal is to use the data in HomeAssistant to alert me if the per-minute usage is &ldquo;high&rdquo; after 10pm (suggesting the heating might have been left on), or if weekly total consumption is looking excessive. I hope others can make use of the tools to extract, monitor and archive their own Powerpal data too!</p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://forfuncsake.github.io/post/2020/07/wifi-quick-config/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://forfuncsake.github.io/post/2020/07/wifi-quick-config/">Reversing WiFi QuickConfig for an IP Cam</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'forfuncsake';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://forfuncsake.github.io/js/ui.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-102737019-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+</body>
+</html>
+

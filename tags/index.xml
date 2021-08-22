@@ -6,15 +6,33 @@
     <description>Recent content in Tags on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Sep 2017 23:00:32 +1000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Aug 2021 17:30:00 +1000</lastBuildDate>
     
 	<atom:link href="https://forfuncsake.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Ble</title>
+      <link>https://forfuncsake.github.io/tags/ble/</link>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/ble/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Energy Monitoring</title>
+      <link>https://forfuncsake.github.io/tags/energy-monitoring/</link>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/energy-monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Golang</title>
       <link>https://forfuncsake.github.io/tags/golang/</link>
-      <pubDate>Fri, 01 Sep 2017 23:00:32 +1000</pubDate>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
       
       <guid>https://forfuncsake.github.io/tags/golang/</guid>
       <description></description>
@@ -23,7 +41,7 @@
     <item>
       <title>Iot</title>
       <link>https://forfuncsake.github.io/tags/iot/</link>
-      <pubDate>Fri, 17 Jul 2020 21:25:26 +1000</pubDate>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
       
       <guid>https://forfuncsake.github.io/tags/iot/</guid>
       <description></description>
@@ -35,6 +53,33 @@
       <pubDate>Fri, 17 Jul 2020 21:25:26 +1000</pubDate>
       
       <guid>https://forfuncsake.github.io/tags/ip-camera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mitm</title>
+      <link>https://forfuncsake.github.io/tags/mitm/</link>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/mitm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mitmproxy</title>
+      <link>https://forfuncsake.github.io/tags/mitmproxy/</link>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/mitmproxy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Powerpal</title>
+      <link>https://forfuncsake.github.io/tags/powerpal/</link>
+      <pubDate>Sun, 22 Aug 2021 17:30:00 +1000</pubDate>
+      
+      <guid>https://forfuncsake.github.io/tags/powerpal/</guid>
       <description></description>
     </item>
     

@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Iot on for func() sake { }</title>
-    <link>https://forfuncsake.github.io/tags/iot/</link>
-    <description>Recent content in Iot on for func() sake { }</description>
+    <title>Energy Monitoring on for func() sake { }</title>
+    <link>https://forfuncsake.github.io/tags/energy-monitoring/</link>
+    <description>Recent content in Energy Monitoring on for func() sake { }</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 22 Aug 2021 17:30:00 +1000</lastBuildDate>
     
-	<atom:link href="https://forfuncsake.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://forfuncsake.github.io/tags/energy-monitoring/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       <guid>https://forfuncsake.github.io/post/2021/08/owning-my-own-powerpal-data/</guid>
       <description>If you haven&amp;rsquo;t heard of Powerpal, it&amp;rsquo;s a little Bluetooth Low-Energy (BLE) device available in Australia that attaches to your residential electricity meter to collect and display realtime and historic energy usage data via a mobile app. This alone is pretty awesome, but if you&amp;rsquo;re in the state of Victoria, you can also get one for free under the Victorian Government Energy Upgrades scheme.
  &amp;hellip; and if you claim yours via my referral link, I get $5: https://www.</description>
-    </item>
-    
-    <item>
-      <title>Reversing WiFi QuickConfig for an IP Cam</title>
-      <link>https://forfuncsake.github.io/post/2020/07/wifi-quick-config/</link>
-      <pubDate>Fri, 17 Jul 2020 21:25:26 +1000</pubDate>
-      
-      <guid>https://forfuncsake.github.io/post/2020/07/wifi-quick-config/</guid>
-      <description>The Camera I recently came across a really good deal on a WiFi Video Doorbell being cleared out by AusPost for AU$29 a pop (specifically, the Q-See QDB03-AU). The unit comes packaged with a pair of 18650 Lithium-ion batteries that are claimed to provide up to 6 months standby and has a list of features that include 2-way talk, PIR motion sensing and local SD card recording (card not included).</description>
     </item>
     
   </channel>
